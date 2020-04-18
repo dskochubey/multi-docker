@@ -2,7 +2,7 @@ sudo: required
 services:
     - docker
 before_install:
-    - docker build -t dskochubey/react-test -f Dockerfile.dev .
+    - docker build -t dskochubey/react-test -f Dockerfile.dev ./client
 script:
     - docker run -e CI=true dskochubey/react-test yarn test 
 after_success:
