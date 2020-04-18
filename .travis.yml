@@ -2,18 +2,18 @@ sudo: required
 services:
     - docker
 before_install:
-    - docker build -t dskochubey/react-test -f ./client/Dockerfile.dev ./client
+    - docker build -t dezarr/react-test -f ./client/Dockerfile.dev ./client
 script:
-    - docker run -e CI=true dskochubey/react-test yarn test 
+    - docker run -e CI=true dezarr/react-test yarn test 
 after_success:
-    - docker build -t dskochubey/multi-client ./client
-    - docker build -t dskochubey/multi-nginx ./nginx
-    - docker build -t dskochubey/multi-server ./server
-    - docker build -t dskochubey/multi-worker ./worker
+    - docker build -t dezarr/multi-client ./client
+    - docker build -t dezarr/multi-nginx ./nginx
+    - docker build -t dezarr/multi-server ./server
+    - docker build -t dezarr/multi-worker ./worker
     # Log in to the docker CLI
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     # Take those images and push them to docker hub
-    - docker push dskochubey/multi-client
-    - docker push dskochubey/multi-nginx
-    - docker push dskochubey/multi-server
-    - docker push dskochubey/multi-worker
+    - docker push dezarr/multi-client
+    - docker push dezarr/multi-nginx
+    - docker push dezarr/multi-server
+    - docker push dezarr/multi-worker
