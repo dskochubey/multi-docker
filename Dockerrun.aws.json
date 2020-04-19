@@ -25,7 +25,7 @@
         {
             "name": "nginx",
             "image": "dezarr/multi-nginx",
-            "essential": true,,
+            "essential": true,
             "memory": 128,
             "portMappings": [
                 {
